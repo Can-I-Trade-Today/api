@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/Can-I-Trade-Today/api#readme",
   "devDependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "serverless-http": "^3.0.2",
+    "yahoo-finance": "^0.3.7"
   }
 }
