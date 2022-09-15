@@ -1,0 +1,28 @@
+{
+  "name": "can-i-trade-today-api",
+  "version": "0.0.0",
+  "description": "Can I Trade Today API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Can-I-Trade-Today/api.git"
+  },
+  "keywords": [
+    "indicator",
+    "trade",
+    "trading",
+    "api"
+  ],
+  "author": "Earde Bearda and Hessel Amann",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/Can-I-Trade-Today/api/issues"
+  },
+  "homepage": "https://github.com/Can-I-Trade-Today/api#readme",
+  "devDependencies": {
+    "express": "^4.18.1"
+  }
+}
