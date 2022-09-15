@@ -4,7 +4,7 @@ const express = require("express");
 const serverless = require("serverless-http");
 const app = express();
 
-app.get("/", function (req, res) {
+app.get("/api/iwo", function (req, res) {
   var dateEnd = new Date();
   var dateStart = new Date();
   dateStart.setDate(dateStart.getDate() - 100);
