@@ -4,6 +4,15 @@ const express = require("express");
 const serverless = require("serverless-http");
 const app = express();
 
+function GetSma(quotes, from, length) {
+  let sma = 0;
+  for (let i = from; i < from + length; i++) {
+    sma += quotes[i].close;
+  }
+  sma /= length;
+  return sma;
+}
+
 app.get("/", function (req, res) {
   var dateEnd = new Date();
   var dateStart = new Date();
@@ -18,25 +27,19 @@ app.get("/", function (req, res) {
     },
     function (err, quotes) {
       console.log(quotes);
-      var sma10 = 0;
-      var sma20 = 0;
-      var sma50 = 0;
-      for (let i = 0; i < 50; i++) {
-        if (i < 10) {
-          sma10 += quotes[i].close;
-        }
-        if (i < 20) {
-          sma20 += quotes[i].close;
-        }
-        sma50 += quotes[i].close;
-      }
-      sma10 /= 10.0;
-      sma20 /= 20.0;
-      sma50 /= 50.0;
+      let sma10_cur = GetSma(quotes, 0, 10);
+      let sma20_cur = GetSma(quotes, 0, 20);
+
+      let sma10_prev = GetSma(quotes, 1, 10);
+      let sma20_prev = GetSma(quotes, 1, 20);
+
       var result = {
-        SMA_10: sma10,
-        SMA_20: sma20,
-        SMA_50: sma50,
+        SMA_10_Current: sma10_cur,
+        SMA_20_Current: sma20_cur,
+        SMA_10_Previous: sma10_prev,
+        SMA_20_Previous: sma20_prev,
+        SMA_10_IsRising: sma10_cur > sma10_prev,
+        SMA_20_IsRising: sma20_cur > sma20_prev,
         Quotes: quotes,
       };
       res.end(JSON.stringify(result));
