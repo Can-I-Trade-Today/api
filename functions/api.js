@@ -34,15 +34,10 @@ app.get("/api/iwo", function (req, res) {
       let sma20_prev = GetSma(quotes, 1, 20);
 
       var result = {
-        SMA_10_Current: sma10_cur,
-        SMA_20_Current: sma20_cur,
-        SMA_10_Previous: sma10_prev,
-        SMA_20_Previous: sma20_prev,
-        SMA_10_IsRising: sma10_cur > sma10_prev,
-        SMA_20_IsRising: sma20_cur > sma20_prev,
-        Quotes: quotes,
-      };
-      res.end(JSON.stringify(result));
+        canitradetoday: sma10_cur > sma10_prev && sma20_cur > sma20_prev && quotes[0].close > sma10_cur && quotes[0].close > sma20_cur
+      }
+
+      res.end("Can I Trade Today: " + result.canitradetoday ? "Yes" : "No");
     }
   );
 });
