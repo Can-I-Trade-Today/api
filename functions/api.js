@@ -37,7 +37,9 @@ app.get("/api/iwo", function (req, res) {
         canitradetoday: sma10_cur > sma10_prev && sma20_cur > sma20_prev && quotes[0].close > sma10_cur && quotes[0].close > sma20_cur
       }
 
-      res.end("Can I Trade Today: " + result.canitradetoday ? "Yes" : "No");
+      let output = "Can I Trade Today: ";
+      output += result.canitradetoday ? "Yes" : "No";
+      res.end(output);
     }
   );
 });
