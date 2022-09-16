@@ -13,7 +13,7 @@ function GetSma(quotes, from, length) {
   return sma;
 }
 
-app.get("/", function (req, res) {
+app.get("/api/iwo", function (req, res) {
   var dateEnd = new Date();
   var dateStart = new Date();
   dateStart.setDate(dateStart.getDate() - 100);
