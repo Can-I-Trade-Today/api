@@ -1,6 +1,21 @@
 [build]
     functions="functions"
 [[redirects]]
+    from = "https://canitradetoday.com/*"
+    to = "https://canitrade.today/:splat"
+    status = 301
+    force = true
+[[redirects]]
+    from = "https://www.canitradetoday.com/*"
+    to = "https://canitrade.today/:splat"
+    status = 301
+    force = true
+[[redirects]]
+    from = "https://canitradetoday.netlify.app/*"
+    to = "https://canitrade.today/:splat"
+    status = 301
+    force = true
+[[redirects]]
     to="/.netlify/functions/api/:splat"
     from="/*"
     status=200
